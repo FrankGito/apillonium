@@ -2,7 +2,7 @@ import * as readline from "readline";
 import { hello } from "./greeting.ts";
 import { getCollection } from "./getCollection.ts";
 import { mint } from './mintOnCollection.ts'
-import { burn } from "./burnOnCollection.ts";
+import { transfer } from './transferOwnership.ts'
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -31,14 +31,14 @@ async function main() {
     "Wanna mint something (yes/no)",
   );
   answer_b.toLowerCase() === "yes"
-    ? console.log(await mint({ idsToMint: [0] }))
+    ? console.log(await mint({ idsToMint: [2] }))
     : "You said you don't want";
 
   const answer_c = await askQuestion(
-    "Wanna burn something (yes/no)",
+    "Wanna transfer collection to Frank (yes/no)",
   );
   answer_c.toLowerCase() === "yes"
-    ? console.log(await burn('1'))
+    ? console.log(await transfer())
     : "You said you don't want";
 
   rl.close();
