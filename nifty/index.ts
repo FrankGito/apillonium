@@ -3,7 +3,6 @@ import {
   SubstrateChain,
   LogLevel,
   Nft,
-  TransactionStatus,
   CollectionStatus,
 } from '@apillon/sdk';
 
@@ -16,29 +15,31 @@ const nft = new Nft({
 console.log("--- INITIALISE SUCESS --- ")
 console.log(nft)
 
-let substrateCollection = await nft.createSubstrate({
-  chain: SubstrateChain.ASTAR,
-  collectionType: CollectionType.GENERIC,
-  name: 'SpaceExplorers',
-  symbol: 'SE',
-  baseUri: 'https://moonbeamnfts.com/collections/spaceexplorers/',
-  description: 'A collection of unique space exploration NFTs.',
-  baseExtension: 'json',
-  royaltiesFees: 5,
-  drop: false,
-  maxSupply: 100,
-});
-console.log("--- CREATE NFT SUCESS --- ")
-console.log(substrateCollection)
+let substrateCollection = nft.collection("d3eabd73-6cf9-4b9d-b0e6-374c69797d8e")
+await substrateCollection.get()
 
-/**
+// let substrateCollection = await nft.createSubstrate({
+//   chain: SubstrateChain.ASTAR,
+//   collectionType: CollectionType.GENERIC,
+//   name: 'SpaceExplorers',
+//   symbol: 'SE',
+//   baseUri: 'https://moonbeamnfts.com/collections/spaceexplorers/',
+//   description: 'A collection of unique space exploration NFTs.',
+//   baseExtension: 'json',
+//   royaltiesFees: 5,
+//   drop: false,
+//   maxSupply: 100,
+// });
+// console.log("--- CREATE NFT SUCESS --- ")
+// console.log(substrateCollection)
+
 // check if collection is deployed - available on chain
 if (substrateCollection.collectionStatus == CollectionStatus.DEPLOYED) {
   console.log('Collection deployed: ', substrateCollection.transactionHash);
 } else {
   console.log("Collection not deployed")
 }
-
+/**
 // search through collections
 const listo = await nft.listCollections();
 console.log("--- SEARCH NFT SUCESS --- ")
