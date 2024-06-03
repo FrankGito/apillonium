@@ -1,4 +1,5 @@
 import * as readline from 'readline';
+import { hello } from './greeting.ts'
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -20,8 +21,10 @@ async function main() {
   const answer = await askQuestion('Do you like TypeScript? (yes/no) ');
   if (answer.toLowerCase() === 'yes') {
     console.log('Great to hear that!');
+    hello()
   } else {
     console.log('That\'s okay too!');
+    hello()
   }
 
   rl.close();
