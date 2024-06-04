@@ -1,11 +1,16 @@
 <script setup lang="ts">
 import Experience from './components/Experience.vue'
+import { Button } from '@/components/ui/button'
+
 </script>
 
 <template>
-  <Suspense>
-    <Experience />
-  </Suspense>
+  <div>
+    <Button class="z-50 fixed mt-4 ml-4">Change Model</Button>
+    <Suspense>
+      <Experience />
+    </Suspense>
+  </div>
 </template>
 
 <style>
