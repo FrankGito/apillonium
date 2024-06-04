@@ -1,4 +1,4 @@
-const hello = () => {
+const greeting = () => {
   const greeting = `
  █████╗ ██████╗ ██╗██╗     ██╗      ██████╗ ███╗   ██╗██╗██╗   ██╗███╗   ███╗
 ██╔══██╗██╔══██╗██║██║     ██║     ██╔═══██╗████╗  ██║██║██║   ██║████╗ ████║
@@ -10,4 +10,4 @@ const hello = () => {
   console.log(greeting);
 };
 
-export { hello };
+export { greeting };

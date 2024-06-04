@@ -6,17 +6,22 @@ const nft = new Nft({
   logLevel: LogLevel.VERBOSE,
 });
 
-let createSubstrate = await nft.createSubstrate({
-  chain: SubstrateChain.ASTAR,
-  collectionType: CollectionType.GENERIC,
-  name: "Frankos",
-  symbol: "FO",
-  baseUri: "https://moonbeamnfts.com/collections/spaceexplorers/",
-  description: "Frankos are a uprising NFT Collection",
-  baseExtension: "json",
-  royaltiesFees: 5,
-  drop: false,
-  maxSupply: 100,
-});
+let createSubstrate = async (
+  name: string,
+  symbol: string,
+  baseUri: string,
+  description: string,
+) =>
+  await nft.createSubstrate({
+    chain: SubstrateChain.ASTAR,
+    collectionType: CollectionType.GENERIC,
+    name,
+    symbol,
+    baseUri,
+    description,
+    baseExtension: "json",
+    royaltiesFees: 5,
+    drop: false,
+  });
 
 export { createSubstrate };
