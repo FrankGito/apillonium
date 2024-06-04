@@ -10,8 +10,9 @@ let substrateCollection = await nft
   .collection("d3eabd73-6cf9-4b9d-b0e6-374c69797d8e")
   .get();
 
-const transfer = async () => await substrateCollection.transferOwnership(
-  "Z1pTFZC9tGSmTN66gxEKzY5R5cpwo9eaf2yE8Vt3HaLJuzD",
-);
+const transfer = async () =>
+  await substrateCollection.transferOwnership(
+    "Z1pTFZC9tGSmTN66gxEKzY5R5cpwo9eaf2yE8Vt3HaLJuzD",
+  );
 
 export { transfer };

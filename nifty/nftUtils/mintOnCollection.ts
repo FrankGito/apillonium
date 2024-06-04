@@ -1,6 +1,6 @@
 import { getCollection } from "./getCollection";
 
-const nftCollection = await getCollection()
+const nftCollection = await getCollection();
 
 const defaultAddress = "Z1pTFZC9tGSmTN66gxEKzY5R5cpwo9eaf2yE8Vt3HaLJuzD";
 const defaultQuantity = 1;

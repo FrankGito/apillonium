@@ -1,8 +1,8 @@
 import * as readline from "readline";
-import { hello } from "./greeting.ts";
-import { getCollection } from "./getCollection.ts";
-import { mint } from './mintOnCollection.ts'
-import { transfer } from './transferOwnership.ts'
+import { hello } from "./cliUtils/greeting.ts";
+import { getCollection } from "./nftUtils/getCollection.ts";
+import { mint } from "./nftUtils/mintOnCollection.ts";
+import { transfer } from "./nftUtils/transferOwnership.ts";
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -27,9 +27,7 @@ async function main() {
     ? console.log(await getCollection("d3eabd73-6cf9-4b9d-b0e6-374c69797d8e"))
     : "You said you don't want";
 
-  const answer_b = await askQuestion(
-    "Wanna mint something (yes/no)",
-  );
+  const answer_b = await askQuestion("Wanna mint something (yes/no)");
   answer_b.toLowerCase() === "yes"
     ? console.log(await mint({ idsToMint: [2] }))
     : "You said you don't want";
