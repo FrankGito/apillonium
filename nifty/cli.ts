@@ -111,6 +111,7 @@ B) Quit
       baseExtension: "json",
       royaltiesFees: 5,
       drop: false,
+      maxSupply: 10
     });
     console.log("Finished Creation");
     console.log("You are glorious, lets continue.");
