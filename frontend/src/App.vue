@@ -1,16 +1,11 @@
-<script setup lang="ts">
-import Experience from './components/Experience.vue'
-import { Button } from '@/components/ui/button'
-
-</script>
-
 <template>
-  <div>
-    <Button class="z-50 fixed mt-4 ml-4">Change Model</Button>
-    <Suspense>
-      <Experience />
-    </Suspense>
-  </div>
+  <nav class="z-50 fixed top-0">
+    <RouterLink to="/">Home</RouterLink> |
+    <RouterLink to="/experience">Experience</RouterLink>
+  </nav>
+  <main>
+    <RouterView />
+  </main>
 </template>
 
 <style>
