@@ -1,0 +1,13 @@
+{
+  "name": "fileserver",
+  "author": "Frank Dierolf",
+  "description": "A tiny file server to avoid base_uri encountered struggle",
+  "scripts": {
+    "serve": "cd ./files/ && vite --port 4242 ."
+  },
+  "dependencies": {
+    "vite": "^5.2.12"
+  },
+  "license": "MIT",
+  "version": "1.0.0"
+}
