@@ -2,7 +2,13 @@ import * as readline from "readline";
 import { mkdir } from "node:fs/promises";
 import { writeFile, readFile } from "node:fs/promises";
 import { greeting } from "./cliUtils/greeting.ts";
-import { Storage, LogLevel, Nft, SubstrateChain, CollectionType } from "@apillon/sdk";
+import {
+  Storage,
+  LogLevel,
+  Nft,
+  SubstrateChain,
+  CollectionType,
+} from "@apillon/sdk";
 
 // Initialise Readline
 const rl = readline.createInterface({
@@ -17,7 +23,7 @@ const storage = new Storage({
   logLevel: LogLevel.VERBOSE,
 });
 
-// Initialise NFT 
+// Initialise NFT
 const nft = new Nft({
   key: "a51d1f95-c56a-49c4-ac54-08abf3567ab1",
   secret: "rfFfWu6wWlpt",
@@ -113,21 +119,18 @@ B) Quit
     const answer_mint_address = await askQuestion(
       "Which address should be the owner?",
     );
-    console.log("You will mint Id 1")
+    console.log("You will mint Id 1");
     await nft_collection.mint({
       receivingAddress: answer_mint_address,
       idsToMint: [1],
     });
-
-
-
   } else if (optionChoice.toUpperCase() === "B") {
     /*********************** OPTION B *******************/
     /****************************************************/
     /****************************************************/
-    console.log("Thank you, come back when more option available.")
+    console.log("Thank you, come back when more option available.");
   } else {
-    console.log("Invalid choice.")
+    console.log("Invalid choice.");
   }
 
   rl.close();

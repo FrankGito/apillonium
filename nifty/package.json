@@ -1,15 +1,11 @@
 {
   "name": "nifty",
-  "version": "1.0.0",
+  "author": "Frank Dierolf",
   "type": "module",
-  "description": "",
-  "main": "index.js",
+  "description": "A Cli Expiremtn to get familar with the Apillon SDK",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cli": "npx tsx cli.ts"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "@apillon/sdk": "^3.1.0"
   },
