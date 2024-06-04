@@ -46,7 +46,8 @@ async function main() {
   const optionChoice = await askQuestion(`
 Type A or B
 A) Create Metadata + Create Collection + Mint NFT
-B) Quit
+B) Mint on Apillonium Collection your favourite Token.
+C) Quit
 `);
   /*********************** OPTION A *******************/
   /***Create Metadata + Create Collection + Mint NFT***/
@@ -88,16 +89,16 @@ B) Quit
     /* Cratft Collecton */
     console.log("Lets craft our Collection");
     const answer_collection_name = await askQuestion(
-      "What is the name of our Collection?",
+      "What is the name of our Collection? ",
     );
     const answer_collection_description = await askQuestion(
-      "What is the description of our Collection?",
+      "What is the description of our Collection? ",
     );
     const answer_collection_symbol = await askQuestion(
-      "What is the Symbol of our Collectio?",
+      "What is the Symbol of our Collection? ",
     );
     const answer_collection_base_uri = await askQuestion(
-      "What is the baseUri of our Collection?",
+      "What is the baseUri of our Collection? ",
     );
 
     console.log("Create Collection");
@@ -118,18 +119,29 @@ B) Quit
 
     /* Mint on Collection */
     const answer_mint_address = await askQuestion(
-      "Which address should be the owner?",
+      "Which address should be the owner? ",
     );
-    console.log("You will mint Id 1");
+    console.log("You will mint Id 1 ");
     await nft_collection.mint({
-      receivingAddress: answer_mint_address,
+      receivingAddress: `"${answer_mint_address}"`,
       idsToMint: [1],
     });
   } else if (optionChoice.toUpperCase() === "B") {
     /*********************** OPTION B *******************/
+    /***********MINT ON COLLECTION APILLONIUM************/
     /****************************************************/
-    /****************************************************/
-    console.log("Thank you, come back when more option available.");
+    const nft_collection = await nft.collection("8751d06b-3a4c-4967-ab43-cdef3bb0e92f").get();
+    const answer_mint_address = await askQuestion(
+      "Which address should be the owner? ",
+    );
+    const answer_mint_tokenId = await askQuestion(
+      "Which tokenId do you want? ",
+    );
+    await nft_collection.mint({
+      receivingAddress: `${answer_mint_address}`,
+      idsToMint: [parseInt(answer_mint_tokenId)],
+    });
+
   } else {
     console.log("Invalid choice.");
   }
