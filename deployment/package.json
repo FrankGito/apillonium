@@ -1,0 +1,16 @@
+{
+  "name": "deployment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "update": "rm -r ./out/ && cd ../frontend/ && npx vite build && cp -r ./dist ../deployment/ && cd ../deployment/ && mv dist out",
+    "deploy": "npx @apillon/cli hosting deploy-website --key a51d1f95-c56a-49c4-ac54-08abf3567ab1 --secret rfFfWu6wWlpt --uuid fcf0bdaf-08f4-4ab0-86ee-4013b8c58838 ./out/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@apillon/cli": "^1.3.0"
+  }
+}
