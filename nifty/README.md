@@ -9,6 +9,10 @@ To get a feeling for the SDK we build a simple CLI.
 - [x] create Collection on Astar
 - [x] mint NFT (1) on Astar
 
+## Screenshot
+
+![Screenshot](https://i.ibb.co/mbP9rQK/image.png)
+
 ## Rundown
 
 [Youtube Rundown with live fix](https://www.youtube.com/watch?v=_kwXrSVmcm0)
