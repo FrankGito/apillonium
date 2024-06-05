@@ -1,12 +1,12 @@
 <script setup>
 /*FRANK SECTION*/
-import { onMounted } from 'vue'
-import { useMeshy } from '../composables/useMeshy.ts'
-import { useApillon } from '../composables/useApillon.ts'
+import { onMounted } from "vue";
+import { useMeshy } from "../composables/useMeshy.ts";
+import { useApillon } from "../composables/useApillon.ts";
 onMounted(async () => {
-  await useMeshy()
-  await useApillon()
-})
+  await useMeshy();
+  await useApillon();
+});
 
 import Experience from "./../components/Experience.vue";
 import { Button } from "@/components/ui/button";
@@ -16,6 +16,10 @@ const router = useRouter();
 
 function goHome() {
   router.push("/");
+}
+
+function downloadModel() {
+  console.log("Downloading model...");
 }
 </script>
 <template>
@@ -30,6 +34,8 @@ function goHome() {
       <Button class="ml-5">Middle</Button>
       <Button class="ml-5">Right</Button>
     </div>
+    <Button @click="downloadModel" class="ml-5 mt-5">Download Model</Button>
+
     <Button @click="goHome" class="ml-5 mt-5">HOME</Button>
   </div>
 </template>
