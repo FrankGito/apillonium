@@ -1,4 +1,13 @@
 <script setup>
+/*FRANK SECTION*/
+import { onMounted } from 'vue'
+import { useMeshy } from '../composables/useMeshy.ts'
+import { useApillon } from '../composables/useApillon.ts'
+onMounted(async () => {
+  await useMeshy()
+  await useApillon()
+})
+
 import Experience from "./../components/Experience.vue";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "vue-router";
