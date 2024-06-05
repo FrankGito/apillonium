@@ -1,24 +1,15 @@
 <template>
-  <nav class="z-50 fixed top-0">
-    <RouterLink to="/">Home</RouterLink> |
-    <RouterLink to="/experience">Experience</RouterLink>
-  </nav>
-  <main>
-    <RouterView />
+  <main class="min-h-screen flex flex-col">
+    <nav class="flex flex-row gap-8 justify-center font-bold text-xl space-x-4">
+      <router-link class="text-blue-500 hover:text-blue-800" to="/"
+        >Home</router-link
+      >
+      <router-link class="text-blue-500 hover:text-blue-800" to="/experience"
+        >Experience</router-link
+      >
+    </nav>
+    <div class="flex flex-col w-full items-center justify-center">
+      <router-view></router-view>
+    </div>
   </main>
 </template>
-
-<style>
-html,
-body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-}
-
-#app {
-  height: 100%;
-  width: 100%;
-}
-</style>

@@ -1,17 +1,28 @@
 <script setup lang="ts">
-import { SRGBColorSpace } from 'three';
-import { TresCanvas } from '@tresjs/core';
-import { OrbitControls, useTweakPane } from '@tresjs/cientos';
-import TheModel from './TheModel.vue';
+import { SRGBColorSpace } from "three";
+import { TresCanvas } from "@tresjs/core";
+import { OrbitControls, useTweakPane } from "@tresjs/cientos";
+import TheModel from "./TheModel.vue";
 
 useTweakPane();
 </script>
 
 <template>
   <Suspense>
-    <TresCanvas clear-color="#82DBC5" shadows alpha window-size power-preference="high-performance"
-      :output-color-space="SRGBColorSpace">
-      <TresPerspectiveCamera :position="[5, 5, 5]" :fov="75" :near="0.1" :far="1000" />
+    <TresCanvas
+      clear-color="#82DBC5"
+      shadows
+      alpha
+      window-size
+      power-preference="high-performance"
+      :output-color-space="SRGBColorSpace"
+    >
+      <TresPerspectiveCamera
+        :position="[5, 5, 5]"
+        :fov="75"
+        :near="0.1"
+        :far="1000"
+      />
       <OrbitControls />
       <TresAmbientLight :color="0xffffff" :intensity="1" />
       <TresDirectionalLight :position="[0, 8, 4]" :intensity="2" cast-shadow />
