@@ -23,8 +23,10 @@ function downloadModel() {
 }
 </script>
 <template>
-  <div class="z-50 fixed top-0 left-4 ml-5 mb-5 flex flex-col items-center">
-    <Button @click="goHome" class="ml-5 mt-5">HOME</Button>
+  <div class="z-50 fixed top-0 left-0 ml-5 mb-5 flex flex-col items-center">
+    <a @click="goHome" class="cursor-pointer">
+      <img src="https://i.ibb.co/Wsb97z4/image.png" alt="logo" width="50" height="50" class="py-6" />
+    </a>
   </div>
   <Suspense>
     <div>
