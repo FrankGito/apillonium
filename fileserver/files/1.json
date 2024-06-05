@@ -1,1 +1,5 @@
-{"name": "King Kong","description": "Great Creature","glb": "asdfasdfasdfasdfasdfasdfasdf"}
+{
+  "name": "King Kong",
+  "description": "Great Creature",
+  "glb": "./KingKong.glb"
+}
