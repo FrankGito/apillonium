@@ -15,6 +15,7 @@ const routes = [
 const router = createRouter({
   history: createMemoryHistory(),
   routes,
+  linkExactActiveClass: 'text-orange-400',
 });
 
 export default router;
