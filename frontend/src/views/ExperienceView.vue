@@ -23,6 +23,9 @@ function downloadModel() {
 }
 </script>
 <template>
+  <div class="z-50 fixed top-0 left-4 ml-5 mb-5 flex flex-col items-center">
+    <Button @click="goHome" class="ml-5 mt-5">HOME</Button>
+  </div>
   <Suspense>
     <div>
       <Experience />
@@ -35,7 +38,5 @@ function downloadModel() {
       <Button class="ml-5">Right</Button>
     </div>
     <Button @click="downloadModel" class="ml-5 mt-5">Download Model</Button>
-
-    <Button @click="goHome" class="ml-5 mt-5">HOME</Button>
   </div>
 </template>
