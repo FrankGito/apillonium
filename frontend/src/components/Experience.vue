@@ -1,8 +1,30 @@
 <script setup lang="ts">
 import { SRGBColorSpace } from "three";
-import { TresCanvas } from "@tresjs/core";
-import { OrbitControls, useTweakPane } from "@tresjs/cientos";
-import TheModel from "./TheModel.vue";
+import { TresCanvas, } from "@tresjs/core";
+import { OrbitControls, useTweakPane, useGLTF } from "@tresjs/cientos";
+import { ref, watch } from 'vue'
+
+const model = ref(null)
+const { scene } = await useGLTF(
+  './KingKong.glb',
+  { draco: true }
+);
+model.value = scene
+
+const props = defineProps({
+  currentModel: String
+})
+async function reload() {
+  const { scene } = await useGLTF(
+    `./${props.currentModel}.glb`,
+    { draco: true }
+  );
+  model.value = scene
+  console.log(model.value)
+}
+
+watch(props, reload)
+
 
 useTweakPane();
 </script>
@@ -16,7 +38,7 @@ useTweakPane();
       <TresAmbientLight :color="0xffffff" :intensity="1" />
       <TresDirectionalLight :position="[0, 8, 4]" :intensity="2" cast-shadow />
       <Suspense>
-        <TheModel />
+        <primitive :object="model" />
       </Suspense>
     </TresCanvas>
   </Suspense>
