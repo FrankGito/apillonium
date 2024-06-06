@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { SRGBColorSpace } from "three";
 import { TresCanvas, } from "@tresjs/core";
-import { OrbitControls, useTweakPane, useGLTF } from "@tresjs/cientos";
-import { ref, watch } from 'vue'
+import { OrbitControls, useGLTF } from "@tresjs/cientos";
+import { ref, watchEffect } from 'vue'
 
 const model = ref(null)
 const { scene } = await useGLTF(
@@ -14,25 +14,18 @@ model.value = scene
 const props = defineProps({
   currentModel: String
 })
-async function reload() {
-  const { scene } = await useGLTF(
-    `./${props.currentModel}.glb`,
-    { draco: true }
-  );
+
+watchEffect(async () => {
+  const path = `./${props.currentModel}.glb`
+  const { scene } = await useGLTF(path, { draco: false });
   model.value = scene
-  console.log(model.value)
-}
+})
 
-watch(props, reload)
-
-
-useTweakPane();
 </script>
 
 <template>
   <Suspense>
-    <TresCanvas clear-color="rgb(251,166,80)" shadows alpha window-size power-preference="high-performance"
-      :output-color-space="SRGBColorSpace">
+    <TresCanvas clear-color="rgb(251,166,80)" window-size :output-color-space="SRGBColorSpace" render-mode="always">
       <TresPerspectiveCamera :position="[5, 5, 5]" :fov="75" :near="0.1" :far="1000" />
       <OrbitControls />
       <TresAmbientLight :color="0xffffff" :intensity="1" />
