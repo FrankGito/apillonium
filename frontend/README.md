@@ -22,6 +22,7 @@ It contains the WebApp.
 
 ### InProgress
 
+- [ ] fix performance, doesn't render fluenty on the current logic ^^
 - [ ] Enable generate Button
   - [ ] Write useApillon.ts, port functionality from nifty cli
   - [ ] Write useMeshy.ts, port functionality from nifty/aiUtils
